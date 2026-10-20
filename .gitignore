@@ -4,6 +4,8 @@ plans/
 /target/
 /target-*/
 /dist/
+/apps/figcraft-browser/node_modules/
+/apps/figcraft-browser/dist/
 /corpus/
 /log/
 .DS_Store
