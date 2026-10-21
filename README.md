@@ -253,7 +253,19 @@ git clone https://github.com/storytold/craft-fonts ../craft-fonts
 
 **Start from a template.** The home screen's Templates tab has eight starter files (a mobile app, a landing page, a dashboard, a design system starter, a wireframe kit, social post sizes, presentation slides and an icon set starter), also under File ▸ New from template…. They are built in code from original, synthetic content, so scripts and agents can open them too: `file.newFromTemplate {template}` ([`docs/mcp.md`](docs/mcp.md#starter-templates)).
 
-For the web build, install [trunk](https://trunkrs.dev/) and run `cargo xtask wasm`.
+For the WASM build of the Rust application, install [trunk](https://trunkrs.dev/) and run `cargo xtask wasm`.
+
+### Browser-first editor (web-stack port)
+
+The `apps/figcraft-browser` app is the start of a browser-native React/TypeScript implementation, using the Rust editor and its screenshots as the behavior and visual reference. It is intentionally independent of the Rust/WASM runtime; parity is being built feature by feature. Run it with Node.js 20.19+ or 22.12+:
+
+```sh
+cd apps/figcraft-browser
+npm install
+npm run dev
+```
+
+It currently provides an interactive design-editor shell, layer selection and movement, basic frame/shape creation, property editing, theme toggle and zoom. It can open native `.figcraft` archives, show their top-level page layers, and download an edited archive while preserving its other archive entries; it also reads/writes the browser prototype's JSON format. This is still an early port: only top-level layers and a subset of geometry/style fields are editable, and full document rendering, multi-page parity and the rest of the Rust feature set remain to be implemented. The Rust implementation remains the behavioral and visual source of truth.
 
 New contributors and AI agents: start with [`AGENTS.md`](AGENTS.md), then [`docs/`](docs/).
 
